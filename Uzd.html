@@ -6,25 +6,29 @@
   <title>Ēdienu Pasūtījums</title>
   <style>
 :root {
-  --primary: #5c6ac4;
-  --primary-hover: #4a59a6;
-  --success: #3ebd93;
-  --success-hover: #35a17a;
-  --danger: #ef5b5b;
-  --danger-hover: #d04848;
+  /* Sakura-themed spring light colors */
+  --primary: #d95c6d; /* sakura pink */
+  --primary-hover: #e87a8e; /* lighter sakura pink */
+  --success: #7fb069; /* fresh spring green */
+  --success-hover: #9acd86; /* lighter spring green */
+  --danger: #e05959; /* soft red */
+  --danger-hover: #ee7a7a; /* lighter red */
 
-  --light-bg: #f5f7ff;
-  --light-text: #222;
-  --light-bg-secondary: #ffffff;
-  --light-border: #d6dbee;
+  --light-bg: #fff5f7; /* very light pink */
+  --light-text: #422f3a; /* dark mauve */
+  --light-bg-secondary: #fff0f3; /* soft pink background */
+  --light-border: #e6cbd3; /* pinkish border */
 
-  --dark-bg: #1e213a;
-  --dark-text: #e2e3f1;
-  --dark-bg-secondary: #2a2e50;
-  --dark-border: #3b416f;
+  /* Dark theme with subtle sakura night tones */
+  --dark-bg: #2f2c3e; /* deep violet-blue */
+  --dark-text: #f3e9e9; /* pale pink */
+  --dark-bg-secondary: #3e3a52; /* muted purple */
+  --dark-border: #5b5066; /* desaturated purple */
 
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Light theme */
 
 body.light {
   background-color: var(--light-bg);
@@ -34,14 +38,16 @@ body.light {
 body.light .food-item {
   background-color: var(--light-bg-secondary);
   border: 1px solid var(--light-border);
-  box-shadow: 0 2px 8px rgb(102 115 255 / 0.15);
+  box-shadow: 0 2px 8px rgb(217 92 109 / 0.15);
 }
 
 body.light #cart-section, body.light #order-form {
   background-color: var(--light-bg-secondary);
   border: 1px solid var(--light-border);
-  box-shadow: 0 2px 10px rgb(102 115 255 / 0.1);
+  box-shadow: 0 2px 10px rgb(217 92 109 / 0.1);
 }
+
+/* Dark theme */
 
 body.dark {
   background-color: var(--dark-bg);
@@ -51,14 +57,16 @@ body.dark {
 body.dark .food-item {
   background-color: var(--dark-bg-secondary);
   border: 1px solid var(--dark-border);
-  box-shadow: 0 2px 8px rgb(40 50 80 / 0.7);
+  box-shadow: 0 2px 8px rgb(62 88 96 / 0.7);
 }
 
 body.dark #cart-section, body.dark #order-form {
   background-color: var(--dark-bg-secondary);
   border: 1px solid var(--dark-border);
-  box-shadow: 0 2px 10px rgb(40 50 80 / 0.6);
+  box-shadow: 0 2px 10px rgb(62 88 96 / 0.6);
 }
+
+/* General body and fonts */
 
 body {
   margin: 0;
@@ -78,7 +86,7 @@ header, footer {
   font-weight: 700;
   font-size: 1.6rem;
   letter-spacing: 1.1px;
-  box-shadow: 0 2px 8px rgb(92 106 196 / 0.6);
+  box-shadow: 0 2px 8px rgb(217 92 109 / 0.6);
   user-select: none;
 }
 
@@ -87,6 +95,8 @@ main {
   max-width: 1000px;
   margin: auto;
 }
+
+/* Theme toggle button with glow animation */
 
 .theme-toggle {
   position: fixed;
@@ -101,12 +111,20 @@ main {
   cursor: pointer;
   z-index: 1100;
   user-select: none;
-  box-shadow: 0 3px 7px rgb(92 106 196 / 0.7);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 7px rgb(217 92 109 / 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 2px;
 }
 .theme-toggle:hover {
   background-color: var(--primary-hover);
+  box-shadow:
+    0 0 8px var(--primary-hover),
+    0 0 20px var(--primary-hover),
+    0 0 40px var(--primary-hover);
+  animation: glowPulse 1.5s ease-in-out infinite alternate;
 }
+
+/* Food item styles */
 
 .food-item {
   border-radius: 14px;
@@ -151,22 +169,24 @@ main {
   margin: 0 0 0.5rem;
   font-style: italic;
   font-size: 1rem;
-  color: #666;
+  color: #86607e; /* soft mauve */
   transition: color 0.3s ease;
 }
 body.dark .food-info p.description {
-  color: #a8aacf;
+  color: #b7a6bd; /* lighter mauve */
 }
 
 .food-info p.ingredients {
   margin: 0 0 0.8rem;
   font-size: 1rem;
-  color: #444;
+  color: #7a5c71; /* muted purple */
   transition: color 0.3s ease;
 }
 body.dark .food-info p.ingredients {
-  color: #b3b6d3;
+  color: #c3b6cd;
 }
+
+/* Labels and inputs */
 
 label {
   display: block;
@@ -197,10 +217,12 @@ select:focus, input[type="number"]:focus, input[type="text"]:focus, input[type="
 }
 
 body.dark select, body.dark input[type="number"], body.dark input[type="text"], body.dark input[type="tel"] {
-  background-color: #353a69;
-  border-color: #5c6ac4;
+  background-color: #453f5d;
+  border-color: #d95c6d;
   color: var(--dark-text);
 }
+
+/* Buttons with glow effect */
 
 .food-item button {
   margin-top: 0.8rem;
@@ -214,13 +236,19 @@ body.dark select, body.dark input[type="number"], body.dark input[type="text"], 
   font-size: 1.1rem;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   align-self: flex-start;
-  box-shadow: 0 4px 8px rgb(62 189 147 / 0.5);
+  box-shadow: 0 4px 8px rgb(127 176 105 / 0.5);
   user-select: none;
 }
 .food-item button:hover {
   background-color: var(--success-hover);
-  box-shadow: 0 6px 12px rgb(62 189 147 / 0.8);
+  box-shadow:
+    0 0 8px var(--success-hover),
+    0 0 20px var(--success-hover),
+    0 0 40px var(--success-hover);
+  animation: glowPulse 1.5s ease-in-out infinite alternate;
 }
+
+/* Cart button */
 
 #cart-btn {
   display: none;
@@ -234,15 +262,21 @@ body.dark select, body.dark input[type="number"], body.dark input[type="text"], 
   border-radius: 30px;
   font-size: 1.3rem;
   cursor: pointer;
-  box-shadow: 0 5px 14px rgb(92 106 196 / 0.8);
+  box-shadow: 0 5px 14px rgb(217 92 109 / 0.8);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   z-index: 120;
   user-select: none;
 }
 #cart-btn:hover {
   background-color: var(--primary-hover);
-  box-shadow: 0 7px 18px rgb(92 106 196 / 1);
+  box-shadow:
+    0 0 8px var(--primary-hover),
+    0 0 20px var(--primary-hover),
+    0 0 40px var(--primary-hover);
+  animation: glowPulse 1.5s ease-in-out infinite alternate;
 }
+
+/* Cart and order form */
 
 #cart-section, #order-form {
   display: none;
@@ -285,8 +319,8 @@ body.dark select, body.dark input[type="number"], body.dark input[type="text"], 
   transition: color 0.3s ease;
 }
 body.dark #cart-section li {
-  border-color: #4c5184;
-  color: #d3d6f0;
+  border-color: #5b5066;
+  color: #f3e9e9;
 }
 
 #cart-total {
@@ -296,6 +330,8 @@ body.dark #cart-section li {
   color: var(--primary);
   user-select: none;
 }
+
+/* Submit button */
 
 button[type="submit"] {
   margin-top: 1.6rem;
@@ -308,13 +344,19 @@ button[type="submit"] {
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 14px rgb(92 106 196 / 0.9);
+  box-shadow: 0 6px 14px rgb(217 92 109 / 0.9);
   user-select: none;
 }
 button[type="submit"]:hover {
   background-color: var(--primary-hover);
-  box-shadow: 0 9px 18px rgb(92 106 196 / 1);
+  box-shadow:
+    0 0 8px var(--primary-hover),
+    0 0 20px var(--primary-hover),
+    0 0 40px var(--primary-hover);
+  animation: glowPulse 1.5s ease-in-out infinite alternate;
 }
+
+/* Responsive */
 
 @media (max-width: 600px) {
   .food-item {
@@ -330,6 +372,23 @@ button[type="submit"]:hover {
   }
   select, input[type="number"] {
     max-width: 100%;
+  }
+}
+
+/* Glow pulse animation */
+
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+  100% {
+    box-shadow:
+      0 0 15px currentColor,
+      0 0 30px currentColor,
+      0 0 40px currentColor;
   }
 }
   </style>
