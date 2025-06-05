@@ -27,7 +27,7 @@
 
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#background-video {
+#background-gif {
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +35,7 @@
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-  pointer-events: none; /* lai video netraucē klikšķus */
+  pointer-events: none; /* lai gif netraucē klikšķus */
 }
 /* Light theme */
 
@@ -431,10 +431,7 @@ button[type="submit"]:hover {
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 <body class="light">
-  <video autoplay muted loop playsinline id="background-video">
-    <source src="background-video.mp4" type="video/mp4" />
-  Jūsu pārlūkprogramma neatbalsta video elementu.
-  </video>
+<img src="background.gif" alt="Fona GIF" id="background-gif" />
   <button class="theme-toggle" id="themeToggleBtn" aria-label="Pārslēgt tēmu">Tumšā tēma</button>
   <header>Ēdienu Pasūtījums</header>
 <video autoplay muted loop playsinline id="background-video">
