@@ -169,9 +169,26 @@ main {
 
 .food-info h4 {
   margin: 0 0 0.4rem;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: inherit;
+  font-size: 1.5rem;
+  font-family: 'Bernadette Rough', cursive;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+/* Шахматные цвета на основе позиции в списке */
+.food-item:nth-of-type(odd) .food-info h4 {
+  color: var(--primary); /* sakura pink */
+}
+.food-item:nth-of-type(even) .food-info h4 {
+  color: var(--light-text); /* dark mauve */
+}
+
+/* В темной теме можно сделать оттенки светлее */
+body.dark .food-item:nth-of-type(odd) .food-info h4 {
+  color: #ff9aab; /* светло-розовый */
+}
+body.dark .food-item:nth-of-type(even) .food-info h4 {
+  color: #e0d1e6; /* светлый фиолетовый */
 }
 
 .food-info p.description {
@@ -412,6 +429,7 @@ button[type="submit"]:hover {
 }
   </style>
 </head>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 <body class="light">
   <video autoplay muted loop playsinline id="background-video">
     <source src="background-video.mp4" type="video/mp4" />
